@@ -56,13 +56,13 @@ export default class MessageBus {
 		};
 	}
 
-	static sendMessage(message: string, value: any) {
+	static sendMessage(message: string, value?: any) {
 		this.messageLog[message] = value;
 		this.notifySubscribers(message);
 		this.updateStorage(message);
 	}
 
-	static async sendMessageAsync(message: string, value: any) {
+	static async sendMessageAsync(message: string, value?: any) {
 		this.messageLog[message] = value;
 		await this.notifySubscribersAsync(message);
 		this.updateStorage(message);
